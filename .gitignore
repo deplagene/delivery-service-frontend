@@ -1,1 +1,35 @@
-node_modules
+# Node
+node_modules/
+dist/
+.env
+.env.*
+.DS_Store
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.idea/
+.vscode/
+*.local
+coverage/
+# VSCode
+.history/
+# Mac
+*.DS_Store
+# Log files
+*.log
+# System Files
+Thumbs.db
+# Build output
+/build
+# Editor folders
+*.swp
+# Test coverage
+/coverage
+# Optional npm cache directory
+.npm
+# Optional eslint cache
+.eslintcache
+# Local env files
+*.local
+# Other
+*.sublime*

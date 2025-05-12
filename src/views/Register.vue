@@ -4,23 +4,53 @@
       <h2>Регистрация</h2>
       <form @submit.prevent="handleSubmit">
         <div class="form-group">
-          <label for="name">Имя</label>
+          <label for="firstName">Имя</label>
           <input
             type="text"
-            id="name"
-            v-model="form.name"
+            id="firstName"
+            v-model="form.firstName"
             required
             placeholder="Введите ваше имя"
           >
         </div>
         <div class="form-group">
-          <label for="email">Email</label>
+          <label for="lastName">Фамилия</label>
           <input
-            type="email"
-            id="email"
-            v-model="form.email"
+            type="text"
+            id="lastName"
+            v-model="form.lastName"
             required
-            placeholder="Введите ваш email"
+            placeholder="Введите вашу фамилию"
+          >
+        </div>
+        <div class="form-group">
+          <label for="phoneNum">Телефон</label>
+          <input
+            type="tel"
+            id="phoneNum"
+            v-model="form.phoneNum"
+            required
+            placeholder="Введите номер телефона"
+          >
+        </div>
+        <div class="form-group">
+          <label for="telegramId">Telegram ID</label>
+          <input
+            type="text"
+            id="telegramId"
+            v-model="form.telegramId"
+            required
+            placeholder="Введите ваш Telegram ID"
+          >
+        </div>
+        <div class="form-group">
+          <label for="address">Адрес</label>
+          <input
+            type="text"
+            id="address"
+            v-model="form.address"
+            required
+            placeholder="Введите ваш адрес"
           >
         </div>
         <div class="form-group">
@@ -49,6 +79,7 @@
         Уже есть аккаунт? <router-link to="/login">Войти</router-link>
       </p>
     </div>
+    <div class="flowers-bg"></div>
   </div>
 </template>
 
@@ -64,8 +95,11 @@ export default {
     const router = useRouter()
     
     const form = reactive({
-      name: '',
-      email: '',
+      firstName: '',
+      lastName: '',
+      phoneNum: '',
+      telegramId: '',
+      address: '',
       password: '',
       confirmPassword: ''
     })
@@ -78,8 +112,11 @@ export default {
 
       try {
         await store.dispatch('register', {
-          name: form.name,
-          email: form.email,
+          firstName: form.firstName,
+          lastName: form.lastName,
+          phoneNum: form.phoneNum,
+          telegramId: form.telegramId,
+          address: form.address,
           password: form.password
         })
         router.push('/')
@@ -97,27 +134,61 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+:root {
+  --rp-base: #232136;
+  --rp-surface: #2a273f;
+  --rp-overlay: #393552;
+  --rp-muted: #6e6a86;
+  --rp-subtle: #908caa;
+  --rp-text: #e0def4;
+  --rp-love: #eb6f92;
+  --rp-gold: #f6c177;
+  --rp-rose: #ea9a97;
+  --rp-pine: #3e8fb0;
+  --rp-foam: #9ccfd8;
+  --rp-iris: #c4a7e7;
+  --rp-highlight: #ebbcba;
+}
 .register {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: calc(100vh - 64px);
-  background-color: #f8f9fa;
+  background: linear-gradient(135deg, var(--rp-base) 60%, var(--rp-rose) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.flowers-bg {
+  position: absolute;
+  left: 0; right: 0; top: 0; bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: url('https://pngimg.com/d/flower_PNG1006.png') repeat 0 0/200px auto,
+              url('https://pngimg.com/d/flower_PNG1007.png') repeat 100px 100px/180px auto;
+  opacity: 0.08;
 }
 
 .register-container {
-  background: white;
+  background: var(--rp-surface);
   padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(60, 34, 90, 0.18);
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
+  z-index: 1;
+  position: relative;
+  border: 2px solid var(--rp-rose);
 }
 
 h2 {
   text-align: center;
-  color: #42b983;
+  color: var(--rp-love);
   margin-bottom: 2rem;
+  font-family: 'Pacifico', cursive;
+  font-size: 2.2rem;
+  letter-spacing: 2px;
 }
 
 .form-group {
@@ -127,49 +198,61 @@ h2 {
 label {
   display: block;
   margin-bottom: 0.5rem;
-  color: #2c3e50;
+  color: var(--rp-foam);
+  font-weight: 500;
 }
 
 input {
   width: 100%;
   padding: 0.75rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  border: 1.5px solid var(--rp-muted);
+  border-radius: 8px;
   font-size: 1rem;
+  background: var(--rp-overlay);
+  color: var(--rp-text);
+  transition: border-color 0.3s;
 }
 
 input:focus {
   outline: none;
-  border-color: #42b983;
+  border-color: var(--rp-love);
+  background: var(--rp-surface);
 }
 
 .btn-register {
   width: 100%;
   padding: 0.75rem;
-  background-color: #42b983;
-  color: white;
+  background: linear-gradient(90deg, var(--rp-love), var(--rp-gold));
+  color: var(--rp-base);
   border: none;
-  border-radius: 4px;
-  font-size: 1rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background 0.3s, color 0.3s;
+  margin-top: 0.5rem;
+  box-shadow: 0 2px 8px rgba(235, 111, 146, 0.12);
 }
 
 .btn-register:hover {
-  background-color: #3aa876;
+  background: linear-gradient(90deg, var(--rp-gold), var(--rp-love));
+  color: var(--rp-text);
 }
 
 .login-link {
   text-align: center;
   margin-top: 1rem;
+  color: var(--rp-subtle);
 }
 
 .login-link a {
-  color: #42b983;
+  color: var(--rp-love);
   text-decoration: none;
+  font-weight: 500;
 }
 
 .login-link a:hover {
   text-decoration: underline;
+  color: var(--rp-gold);
 }
 </style> 
