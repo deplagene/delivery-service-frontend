@@ -172,7 +172,7 @@ export default {
 
 .register-container {
   background: var(--rp-surface);
-  padding: 2rem;
+  padding: 2.5rem;
   border-radius: 16px;
   box-shadow: 0 4px 24px rgba(60, 34, 90, 0.18);
   width: 100%;
@@ -180,6 +180,7 @@ export default {
   z-index: 1;
   position: relative;
   border: 2px solid var(--rp-rose);
+  margin: 2rem 1rem;
 }
 
 h2 {
@@ -192,25 +193,29 @@ h2 {
 }
 
 .form-group {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group:last-of-type {
+  margin-bottom: 2rem;
 }
 
 label {
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   color: var(--rp-foam);
   font-weight: 500;
 }
 
 input {
   width: 100%;
-  padding: 0.75rem;
+  padding: 0.875rem;
   border: 1.5px solid var(--rp-muted);
   border-radius: 8px;
   font-size: 1rem;
   background: var(--rp-overlay);
   color: var(--rp-text);
-  transition: border-color 0.3s;
+  transition: border-color 0.3s, background-color 0.3s;
 }
 
 input:focus {
@@ -221,38 +226,39 @@ input:focus {
 
 .btn-register {
   width: 100%;
-  padding: 0.75rem;
-  background: linear-gradient(90deg, var(--rp-love), var(--rp-gold));
+  padding: 1rem;
+  background: var(--rp-love);
   color: var(--rp-base);
   border: none;
   border-radius: 8px;
   font-size: 1.1rem;
-  font-weight: bold;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s, color 0.3s;
-  margin-top: 0.5rem;
-  box-shadow: 0 2px 8px rgba(235, 111, 146, 0.12);
+  transition: all 0.3s ease;
+  margin-bottom: 1.5rem;
 }
 
 .btn-register:hover {
-  background: linear-gradient(90deg, var(--rp-gold), var(--rp-love));
-  color: var(--rp-text);
+  background: var(--rp-rose);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(235, 111, 146, 0.2);
 }
 
 .login-link {
   text-align: center;
-  margin-top: 1rem;
   color: var(--rp-subtle);
+  margin-top: 1rem;
 }
 
 .login-link a {
   color: var(--rp-love);
   text-decoration: none;
   font-weight: 500;
+  transition: color 0.3s;
 }
 
 .login-link a:hover {
+  color: var(--rp-rose);
   text-decoration: underline;
-  color: var(--rp-gold);
 }
 </style> 

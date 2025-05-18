@@ -1,7 +1,11 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
+import theme from './modules/theme'
 
 export default createStore({
+  modules: {
+    theme
+  },
   state: {
     user: null,
     token: localStorage.getItem('token') || null

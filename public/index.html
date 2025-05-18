@@ -13,8 +13,10 @@
         padding: 0;
         background-color: var(--rp-base);
         color: var(--rp-text);
+        transition: background-color 0.3s ease, color 0.3s ease;
       }
       :root {
+        /* Dark theme (default) */
         --rp-base: #232136;
         --rp-surface: #2a273f;
         --rp-overlay: #393552;
@@ -28,6 +30,22 @@
         --rp-foam: #9ccfd8;
         --rp-iris: #c4a7e7;
         --rp-highlight: #ebbcba;
+      }
+
+      html[data-theme="light"] {
+        --rp-base: #faf4ed;
+        --rp-surface: #fffaf3;
+        --rp-overlay: #f2e9e1;
+        --rp-muted: #9893a5;
+        --rp-subtle: #797593;
+        --rp-text: #575279;
+        --rp-love: #b4637a;
+        --rp-gold: #ea9d34;
+        --rp-rose: #d7827e;
+        --rp-pine: #286983;
+        --rp-foam: #56949f;
+        --rp-iris: #907aa9;
+        --rp-highlight: #f4ede8;
       }
     </style>
   </head>
