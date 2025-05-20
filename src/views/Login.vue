@@ -70,125 +70,128 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-:root {
-  --rp-base: #232136;
-  --rp-surface: #2a273f;
-  --rp-overlay: #393552;
-  --rp-muted: #6e6a86;
-  --rp-subtle: #908caa;
-  --rp-text: #e0def4;
-  --rp-love: #eb6f92;
-  --rp-gold: #f6c177;
-  --rp-rose: #ea9a97;
-  --rp-pine: #3e8fb0;
-  --rp-foam: #9ccfd8;
-  --rp-iris: #c4a7e7;
-  --rp-highlight: #ebbcba;
-}
-.login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: calc(100vh - 64px);
-  background: linear-gradient(135deg, var(--rp-base) 60%, var(--rp-pine) 100%);
-  position: relative;
-  overflow: hidden;
-}
+@import '@/assets/styles/variables.css';
+@import '@/assets/styles/fonts.css';
 
-.flowers-bg {
-  position: absolute;
-  left: 0; right: 0; top: 0; bottom: 0;
-  z-index: 0;
-  pointer-events: none;
-  background: url('https://pngimg.com/d/flower_PNG1006.png') repeat 0 0/200px auto,
-              url('https://pngimg.com/d/flower_PNG1007.png') repeat 100px 100px/180px auto;
-  opacity: 0.08;
+.login {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
 }
 
 .login-container {
-  background: var(--rp-surface);
-  padding: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(60, 34, 90, 0.18);
-  width: 100%;
+  background: #fff;
+  border: 1.5px solid var(--color-olive);
+  border-radius: 2.2rem;
+  padding: 3.2rem 2.8rem 2.5rem 2.8rem;
   max-width: 420px;
-  z-index: 1;
-  position: relative;
-  border: 2px solid var(--rp-pine);
+  width: 100%;
+  margin: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: none;
 }
 
 h2 {
-  text-align: center;
-  color: var(--rp-pine);
-  margin-bottom: 2rem;
-  font-family: 'Pacifico', cursive;
+  font-family: 'Calypso', cursive;
+  color: var(--color-brown);
   font-size: 2.2rem;
-  letter-spacing: 2px;
+  margin-bottom: 2.2rem;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .form-group {
-  margin-bottom: 1rem;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 label {
-  display: block;
-  margin-bottom: 0.5rem;
-  color: var(--rp-foam);
-  font-weight: 500;
+  display: none;
 }
 
 input {
   width: 100%;
-  padding: 0.75rem;
-  border: 1.5px solid var(--rp-muted);
-  border-radius: 8px;
-  font-size: 1rem;
-  background: var(--rp-overlay);
-  color: var(--rp-text);
-  transition: border-color 0.3s;
+  max-width: 320px;
+  padding: 1.1rem 1.2rem;
+  border: 1.5px solid var(--color-input-border);
+  border-radius: 1rem;
+  font-size: 1.08rem;
+  background: var(--color-input-bg);
+  color: var(--color-brown);
+  font-family: 'Lack', Arial, sans-serif;
+  transition: border-color 0.3s, background-color 0.3s;
+  margin-bottom: 0.2rem;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+input::placeholder {
+  color: #a89c91;
+  opacity: 1;
+  font-family: 'Lack', Arial, sans-serif;
+  font-size: 1.08rem;
 }
 
 input:focus {
   outline: none;
-  border-color: var(--rp-pine);
-  background: var(--rp-surface);
+  border-color: var(--color-btn-hover);
+  background: #fff;
 }
 
 .btn-login {
   width: 100%;
-  padding: 0.75rem;
-  background: linear-gradient(90deg, var(--rp-pine), var(--rp-foam));
-  color: var(--rp-base);
+  max-width: 320px;
+  padding: 1.25rem 0;
+  background: var(--color-pink);
+  color: #fff;
   border: none;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: bold;
+  border-radius: 2rem;
+  font-size: 1.18rem;
+  font-family: 'Lack', Arial, sans-serif;
+  font-weight: 500;
   cursor: pointer;
-  transition: background 0.3s, color 0.3s;
-  margin-top: 0.5rem;
-  box-shadow: 0 2px 8px rgba(62, 143, 176, 0.12);
+  margin-bottom: 1.5rem;
+  transition: background 0.3s, transform 0.2s;
+  display: block;
+  text-align: center;
 }
 
 .btn-login:hover {
-  background: linear-gradient(90deg, var(--rp-foam), var(--rp-pine));
-  color: var(--rp-text);
+  background: var(--color-light-pink);
+  transform: translateY(-2px);
 }
 
 .register-link {
   text-align: center;
+  color: #a89c91;
+  font-family: 'Lack', Arial, sans-serif;
   margin-top: 1rem;
-  color: var(--rp-subtle);
+  font-size: 1rem;
 }
 
 .register-link a {
-  color: var(--rp-pine);
+  color: var(--color-pink);
   text-decoration: none;
   font-weight: 500;
+  transition: color 0.3s;
 }
 
 .register-link a:hover {
+  color: var(--color-brown);
   text-decoration: underline;
-  color: var(--rp-foam);
 }
 </style> 
